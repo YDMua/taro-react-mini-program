@@ -1,0 +1,13 @@
+{
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "member-ordering": false,
+    "no-empty-interface": false,
+    "no-console": [true, "warning"],
+    "interface-name": [true, "never-prefix"],
+    "no-empty": false
+  }
+}
