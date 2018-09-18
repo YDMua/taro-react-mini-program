@@ -67,6 +67,3 @@ declare module ‘\*.png’ {
 
 可以在组件内部 import 全局样式文件，但是这里就有可能，多个组件都引入全局，生成多份全局样式文件
 
-相对应的代码我上传到了我的 github:
-
-https://github.com/YDMua/taro-react-mini-program
