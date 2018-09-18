@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:recommended"],
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rules": {
     "ordered-imports": false,
     "object-literal-sort-keys": false,
@@ -9,5 +9,9 @@
     "no-console": [true, "warning"],
     "interface-name": [true, "never-prefix"],
     "no-empty": false
+    // "quotemark": [true, "single"]
+    // "semicolon": [false], // 结尾比较分号
+    // "trailing-comma": [false], // 结尾必须逗号
+    // "requireForBlockBody": true,
   }
 }

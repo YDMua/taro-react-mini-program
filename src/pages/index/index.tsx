@@ -1,11 +1,12 @@
-import { ComponentClass } from "react";
-import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Button, Text } from "@tarojs/components";
-import { connect } from "@tarojs/redux";
+import { ComponentClass } from 'react'
+import Taro, { Component, Config } from '@tarojs/taro'
+import { View, Button, Text } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
 
-import { add, minus, asyncAdd } from "../../actions/counter";
+import { add, minus, asyncAdd } from '../../actions/counter'
+import { userLogin } from '../../utils/index'
 
-import "./index.scss";
+import './index.scss'
 
 // #region 书写注意
 //
@@ -19,41 +20,41 @@ import "./index.scss";
 
 interface PageStateProps {
   counter: {
-    num: number,
-  };
+    num: number
+  }
 }
 
 interface PageDispatchProps {
-  add: () => void;
-  dec: () => void;
-  asyncAdd: () => any;
+  add: () => void
+  dec: () => void
+  asyncAdd: () => any
 }
 
 interface PageOwnProps {}
 
 interface PageState {}
 
-type IProps = PageStateProps & PageDispatchProps & PageOwnProps;
+type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
 interface Index {
-  props: IProps;
+  props: IProps
 }
 
 @connect(
   ({ counter }) => ({
-    counter,
+    counter
   }),
-  (dispatch) => ({
+  dispatch => ({
     add() {
-      dispatch(add());
+      dispatch(add())
     },
     dec() {
-      dispatch(minus());
+      dispatch(minus())
     },
     asyncAdd() {
-      dispatch(asyncAdd());
-    },
-  }),
+      dispatch(asyncAdd())
+    }
+  })
 )
 class Index extends Component {
   /**
@@ -64,11 +65,14 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: "首页",
-  };
+    navigationBarTitleText: '首页'
+  }
+  async componentDidMount() {
+    await userLogin()
+  }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
+    console.log(this.props, nextProps)
   }
 
   componentWillUnmount() {}
@@ -96,7 +100,7 @@ class Index extends Component {
           <Text>Hello, World</Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -107,4 +111,4 @@ class Index extends Component {
 //
 // #endregion
 
-export default Index as ComponentClass<PageOwnProps, PageState>;
+export default Index as ComponentClass<PageOwnProps, PageState>
