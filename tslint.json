@@ -7,7 +7,7 @@
     "member-ordering": false,
     "no-empty-interface": false,
     "no-console": [true, "warning"],
-    "interface-name": [true, "never-prefix"],
+    "interface-name": false,
     "no-empty": false
     // "quotemark": [true, "single"]
     // "semicolon": [false], // 结尾比较分号

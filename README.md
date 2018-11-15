@@ -1,3 +1,7 @@
+#### taro-tmp
+
+[taro 文档](https://nervjs.github.io/taro/docs/README.html)
+
 #### 下载
 
 一：直接下载
@@ -15,6 +19,61 @@ npm install
 ```
 npm run dev:weapp
 ```
+
+#### 目录结果
+
+```
+├── .gitignore
+├── .npmrc
+├── .prettierignore // prettier 忽略文件 配置
+├── .prettierrc // prettier 配置文件
+├── .stylelintignore // stylelint 忽略文件 配置
+├── .stylelintrc.js // stylelint 配置
+├── config // 全局配置文件
+│   ├── dev.js // 开发配置文件, 定义开发 变量
+│   ├── index.js // 全局配置文件(实际 是用这里面的 typescript 配置文件编译文件的, 所以要跟外层的一致))
+│   └── prod.js // 生产配置文件， 定义生产 变量
+├── package.json
+├── project.config.json // 小程序配置文件
+├── README.md
+├── src
+│   ├── modules
+│   │   ├── template
+│   │   │   ├── action.ts 放置 action
+│   │   │   ├── reducer.ts 放置 reducer
+│   │   │   ├── constant.ts 放置 type常量
+│   ├── global
+│   │   ├── index.ts  // 全局工具文件
+│   │   ├── index.ts  // 生命文件
+│   ├── app.scss // 全局样式
+│   ├── app.tsx // 应用入口文件
+│   ├── components
+│   │   ├── Template
+│   │   │   ├── index.tsx 组件入口
+│   │   │   ├── style.scss 组件样式
+│   │   │   └── type.d.ts 组件声明文件
+│   ├── index.html // 单页面
+│   ├── pages
+│   │   ├── Template
+│   │   │   ├── index.tsx 组件入口
+│   │   │   ├── style.scss 组件样式
+│   │   │   └── type.d.ts 组件声明文件
+│   ├── store
+│   │   ├── index.ts redux状态管理入口
+│   ├── types
+│   │   ├── global.d.ts // 全局声明文件
+│   └── utils
+│   │   ├── api.ts // 请求函数
+│   │   ├── http.ts // 统一请求封装文件
+│   │   └── type.d.ts // 类型声明文件
+├── tsconfig.json // typescript 编辑器配置文件
+├── tslint.json // tslint 检测配置文件
+├── commitlint.config.js // commitlint 配置文件
+├── qshell.config.json // qshell 配置文件
+└── yarn.lock // yarn 安装包 缓存目录
+```
+
+- react + ts + scss + redux + redux-thunk
 
 #### commitlint 验证
 
