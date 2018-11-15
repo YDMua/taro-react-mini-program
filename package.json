@@ -12,17 +12,8 @@
     "dev:weapp": "npm run build:weapp -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
     "dev:rn": "npm run build:rn -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "tslint --fix ",
-      "git add"
-    ],
-    "src/**/*.{scss}": [
-      "stylelint --fix",
-      "git add"
-    ]
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "author": "",
   "license": "MIT",
@@ -38,9 +29,12 @@
     "nervjs": "^1.3.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "qs": "^6.5.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
     "@tarojs/plugin-babel": "^1.0.0-beta.26",
     "@tarojs/plugin-csso": "^1.0.0-beta.26",
     "@tarojs/plugin-sass": "^1.0.0-beta.26",
@@ -50,23 +44,33 @@
     "@types/blueimp-md5": "^2.7.0",
     "@types/react": "^16.4.8",
     "@types/webpack-env": "^1.13.6",
-    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "blueimp-md5": "^2.10.0",
-    "eslint": "^4.19.1",
-    "eslint-config-taro": "^1.0.0-beta.26",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-react": "^7.8.2",
-    "eslint-plugin-taro": "^1.0.0-beta.26",
-    "husky": "^0.14.3",
+    "husky": "^1.1.3",
     "lint-staged": "^7.2.2",
     "stylelint": "^9.5.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "tslint --fix ",
+      "git add"
+    ],
+    "src/**/*.{scss}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

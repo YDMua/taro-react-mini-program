@@ -1,6 +1,3 @@
-# taro-react-mini-program
-taro框架搭建react多端项目，当前构建react版本的小程序
-
 #### 下载
 
 一：直接下载
@@ -17,6 +14,24 @@ npm install
 
 ```
 npm run dev:weapp
+```
+
+#### commitlint 验证
+
+```
+build：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
+ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交
+docs：文档更新
+feat：新增功能
+merge：分支合并 Merge branch ? of ?
+fix：bug 修复
+perf：性能, 体验优化
+refactor：重构代码(既没有新增功能，也没有修复 bug)
+style：不影响程序逻辑的代码修改(修改空白字符，格式缩进，补全缺失的分号等，没有改变代码逻辑)
+test：新增测试用例或是更新现有测试
+revert：回滚某个更早之前的提交
+chore：不属于以上类型的其他类型
+
 ```
 
 #### 以下是注意和一些小知识：
@@ -53,9 +68,9 @@ declare module ‘\*.png’ {
 
 1）在 Taro 的页面和组件类中，`this` 指向的是 Taro 页面或组件的实例,如果我们要引用原生组件，需要使用到 this 的时候，如果如下引用：
 
-> Taro.createCanvasContext(canvasId, this.$scope)
+> Taro.createCanvasContext(canvasId, this.\$scope)
 
-> wx.createLivePlayerContext(liveId, this.$scope)
+> wx.createLivePlayerContext(liveId, this.\$scope)
 
 > 错误：wx.createLivePlayerContext(liveId, this)这样引入是没有效果的，this 并不是指向 wx.createLivePlayerContext.
 
@@ -67,3 +82,6 @@ declare module ‘\*.png’ {
 
 可以在组件内部 import 全局样式文件，但是这里就有可能，多个组件都引入全局，生成多份全局样式文件
 
+相对应的代码我上传到了我的 github:
+
+https://github.com/YDMua/taro-react-mini-program
