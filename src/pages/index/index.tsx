@@ -4,7 +4,7 @@ import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { bindActionCreators } from 'redux'
 import { IProps } from './type'
-import { actions as counterAction } from '../../modules/counter/action'
+import { actions as counterAction } from '../../modules/counter'
 import { userLogin } from '../../utils/index'
 
 import './index.scss'
@@ -25,7 +25,6 @@ const mapDispatchToProps = (dispatch: any) => {
     dispatch
   )
 }
-
 @connect(
   mapStateToProps,
   mapDispatchToProps
@@ -35,7 +34,7 @@ class Index extends Component<IProps> {
     navigationBarTitleText: '首页'
   }
   async componentDidMount() {
-    await userLogin()
+    // await userLogin()
   }
 
   componentWillUnmount() {}

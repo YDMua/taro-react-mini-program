@@ -39,9 +39,8 @@ npm run dev:weapp
 ├── src
 │   ├── modules
 │   │   ├── template
-│   │   │   ├── action.ts 放置 action
-│   │   │   ├── reducer.ts 放置 reducer
-│   │   │   ├── constant.ts 放置 type常量
+│   │   │   ├── index.ts 放置 action, reduce, constant常量
+│   │   │   ├── saga.ts 放置异步操作reduce
 │   ├── global
 │   │   ├── index.ts  // 全局工具文件
 │   │   ├── index.ts  // 生命文件
@@ -59,7 +58,9 @@ npm run dev:weapp
 │   │   │   ├── style.scss 组件样式
 │   │   │   └── type.d.ts 组件声明文件
 │   ├── store
-│   │   ├── index.ts redux状态管理入口
+│   │   ├── configStore.ts
+│   │   ├── reducers.ts
+│   │   ├── sagas.ts
 │   ├── types
 │   │   ├── global.d.ts // 全局声明文件
 │   └── utils
@@ -73,7 +74,7 @@ npm run dev:weapp
 └── yarn.lock // yarn 安装包 缓存目录
 ```
 
-- react + ts + scss + redux + redux-thunk
+- react + ts + scss + redux + redux-saga
 
 #### commitlint 验证
 
