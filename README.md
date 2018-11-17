@@ -37,11 +37,10 @@ npm run dev:weapp
 ├── project.config.json // 小程序配置文件
 ├── README.md
 ├── src
-│   ├── modules
+│   ├── models
 │   │   ├── template
-│   │   │   ├── action.ts 放置 action
-│   │   │   ├── reducer.ts 放置 reducer
-│   │   │   ├── constant.ts 放置 type常量
+│   │   │   ├── common.ts 放置 公共的model
+│   │   │   ├── index.ts model的入口文件
 │   ├── global
 │   │   ├── index.ts  // 全局工具文件
 │   │   ├── index.ts  // 生命文件
@@ -50,20 +49,21 @@ npm run dev:weapp
 │   ├── components
 │   │   ├── Template
 │   │   │   ├── index.tsx 组件入口
+│   │   │   ├── model.ts
 │   │   │   ├── style.scss 组件样式
 │   │   │   └── type.d.ts 组件声明文件
 │   ├── index.html // 单页面
 │   ├── pages
 │   │   ├── Template
 │   │   │   ├── index.tsx 组件入口
+│   │   │   ├── model.ts
 │   │   │   ├── style.scss 组件样式
 │   │   │   └── type.d.ts 组件声明文件
-│   ├── store
-│   │   ├── index.ts redux状态管理入口
 │   ├── types
 │   │   ├── global.d.ts // 全局声明文件
 │   └── utils
 │   │   ├── api.ts // 请求函数
+│   │   ├── dva.ts // dva配置文件
 │   │   ├── http.ts // 统一请求封装文件
 │   │   └── type.d.ts // 类型声明文件
 ├── tsconfig.json // typescript 编辑器配置文件
@@ -73,7 +73,7 @@ npm run dev:weapp
 └── yarn.lock // yarn 安装包 缓存目录
 ```
 
-- react + ts + scss + redux + redux-thunk
+- react + ts + scss + dvajs
 
 #### commitlint 验证
 

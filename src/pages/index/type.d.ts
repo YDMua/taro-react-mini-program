@@ -3,13 +3,11 @@ export interface ISelfProp {}
 export interface IState {}
 
 interface IStoreProps {
-  counter: {
+  home: {
     count: number
   }
 }
 interface IStoreDispatch {
-  add: () => any
-  reduce: () => any
-  asyncAdd: () => any
+  dispatch: any
 }
 export type IProps = ISelfProp & IStoreDispatch & IStoreProps

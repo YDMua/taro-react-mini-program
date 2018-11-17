@@ -2,40 +2,20 @@ import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { bindActionCreators } from 'redux'
 import { IProps } from './type'
-import { actions as counterAction } from '../../modules/counter/action'
-import { userLogin } from '../../utils/index'
+// import { userLogin } from '../../utils/index'
 
 import './index.scss'
 
-const mapStateToProps = (state: any) => {
-  return {
-    counter: state.counter
-  }
-}
-
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators(
-    {
-      add: counterAction.add,
-      reduce: counterAction.reduce,
-      asyncAdd: counterAction.asyncAdd
-    },
-    dispatch
-  )
-}
-
-@connect(
-  mapStateToProps,
-  mapDispatchToProps
-)
+@connect(home => ({
+  ...home
+}))
 class Index extends Component<IProps> {
   config: Config = {
     navigationBarTitleText: '首页'
   }
   async componentDidMount() {
-    await userLogin()
+    // await userLogin()
   }
 
   componentWillUnmount() {}
@@ -43,21 +23,35 @@ class Index extends Component<IProps> {
   componentDidShow() {}
 
   componentDidHide() {}
-
+  add() {
+    this.props.dispatch({
+      type: 'home/add'
+    })
+  }
+  reduce() {
+    this.props.dispatch({
+      type: 'home/reduce'
+    })
+  }
+  asyncAdd() {
+    this.props.dispatch({
+      type: 'home/asyncAdd'
+    })
+  }
   render() {
     return (
       <View className="index">
-        <Button className="add_btn" onClick={this.props.add}>
+        <Button className="add_btn" onClick={this.add}>
           +
         </Button>
-        <Button className="dec_btn" onClick={this.props.reduce}>
+        <Button className="dec_btn" onClick={this.reduce}>
           -
         </Button>
-        <Button className="dec_btn" onClick={this.props.asyncAdd}>
-          async
+        <Button className="dec_btn" onClick={this.asyncAdd}>
+          async +
         </Button>
         <View>
-          <Text>{this.props.counter.count}</Text>
+          <Text>{this.props.home.count}</Text>
         </View>
         <View>
           <Text>Hello, World</Text>
