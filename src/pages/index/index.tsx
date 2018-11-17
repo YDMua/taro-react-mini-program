@@ -41,13 +41,13 @@ class Index extends Component<IProps> {
   render() {
     return (
       <View className="index">
-        <Button className="add_btn" onClick={this.add}>
+        <Button className="add_btn" onClick={this.add.bind(this)}>
           +
         </Button>
-        <Button className="dec_btn" onClick={this.reduce}>
+        <Button className="dec_btn" onClick={this.reduce.bind(this)}>
           -
         </Button>
-        <Button className="dec_btn" onClick={this.asyncAdd}>
+        <Button className="dec_btn" onClick={this.asyncAdd.bind(this)}>
           async +
         </Button>
         <View>
