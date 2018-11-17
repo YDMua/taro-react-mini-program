@@ -1,5 +1,12 @@
 # taro-react-mini-program
-taro框架搭建react多端项目，当前构建react版本的小程序
+
+taro 框架搭建 react 多端项目，当前构建 react 版本的小程序
+
+基于当前分支 master 衍生基础框架，这里加入一些状态管理中间件的，比如 redux-thunk,redux-saga,dva 的例子:
+
+- reduxThunkBranch: redux, redux-thunk
+- reduxSagaBranch: redux, redux-saga
+- dvaBranch: dvajs
 
 #### 下载
 
@@ -53,9 +60,9 @@ declare module ‘\*.png’ {
 
 1）在 Taro 的页面和组件类中，`this` 指向的是 Taro 页面或组件的实例,如果我们要引用原生组件，需要使用到 this 的时候，如果如下引用：
 
-> Taro.createCanvasContext(canvasId, this.$scope)
+> Taro.createCanvasContext(canvasId, this.\$scope)
 
-> wx.createLivePlayerContext(liveId, this.$scope)
+> wx.createLivePlayerContext(liveId, this.\$scope)
 
 > 错误：wx.createLivePlayerContext(liveId, this)这样引入是没有效果的，this 并不是指向 wx.createLivePlayerContext.
 
@@ -66,4 +73,3 @@ declare module ‘\*.png’ {
 全局原始 app.scss 只会影响到页面级别的文件，组件的获取不到全局的样式，
 
 可以在组件内部 import 全局样式文件，但是这里就有可能，多个组件都引入全局，生成多份全局样式文件
-
